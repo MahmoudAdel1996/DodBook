@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'todolist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'todolist/css/font-awesome.min.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'todolist/css/todolist.css' %}">
+    <title>DodBook</title>
+</head>
+<body>
+    {% block content %}
+        Replace here
+    {% endblock %}
+    <script>
+        let csrf_token = '{{ csrf_token }}'
+    </script>
+    <script src="{% static 'todolist/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'todolist/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'todolist/js/fontawesome.min.js' %}"></script>
+    <script src="{% static 'todolist/js/jquery.nicescroll.min.js' %}"></script>
+    <script src="{% static 'todolist/js/main.js' %}"></script>
+</body>
+</html>

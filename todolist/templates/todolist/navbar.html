@@ -1,0 +1,7 @@
+<nav class="clearfix bg-light">
+    <a class="pull-left btn" href="{% url 'index' %}">Home</a>
+    <a class="pull-left btn" href="{% url 'profile' %}">Profile</a>
+    <a class="btn pull-right" style="color: red" href="{% url 'logout' %}">Logout!</a>
+    <a class="pull-right btn" href="{% url 'change_pass' %}">Change Password</a>
+    <span class="p-2 pull-right">Hello <b style="color: #0c5460">{{ request.user.username }}</b></span>
+</nav>

@@ -1,0 +1,19 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'todolist/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'todolist/css/404.css' %}">
+    <title>Page Not Found|404</title>
+</head>
+<body>
+    <div class="error-page">
+        <div>
+            <h1 data-h1="404">404</h1>
+            <p data-p="NOT FOUND">NOT FOUND</p>
+            <a class="btn btn-dark" href="{% url 'index' %}">Home</a>
+        </div>
+    </div>
+</body>
+</html>

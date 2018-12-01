@@ -1,0 +1,45 @@
+{% extends 'todolist/base.html' %}
+{% block content %}
+{% include 'todolist/navbar.html' %}
+    <div style="background: #fff" class="container p-4 mt-4 profile">
+        <header><h1>Profile Info</h1></header>
+        <form method="POST" class="form-horizontal clearfix">{% csrf_token %}
+            {% if error == True %}
+                <div class="alert alert-danger alert-dismissible row" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{ form.errors }}.
+                </div>
+            {% endif %}
+            <div class="row">
+                <label for="id_email" class="col-2 control-label">Email</label>
+                <div class="col-10">
+                    <input type="email" id="id_email" name="email" class="form-control" value="{{ field.email }}" placeholder="Email">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <label for="id_username" class="col-2 control-label">Username</label>
+                <div class="col-10">
+                    <input required id="id_username" name="username" type="username" value="{{ field.username }}" class="form-control" placeholder="Username">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <label for="id_first_name" class="col-2 control-label">First Name</label>
+                <div class="col-10">
+                    <input id="id_first_name" name="first_name" type="text" value="{{ field.first_name }}" class="form-control" placeholder="First Name">
+                </div>
+            </div>
+            <br>
+            <div class="row">
+                <label for="id_last_name" class="col-2 control-label">Last Name</label>
+                <div class="col-10">
+                    <input id="id_last_name" name="last_name" type="text" value="{{ field.last_name }}" class="form-control" placeholder="Last Name">
+                </div>
+            </div>
+            <br>
+            <input type="submit" value="Save" class="btn btn-success pull-right">
+        </form>
+
+    </div>
+{% endblock %}

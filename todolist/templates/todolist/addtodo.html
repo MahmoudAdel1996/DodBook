@@ -1,0 +1,20 @@
+{% extends 'todolist/base.html' %}
+{% block content %}
+    {% include 'todolist/navbar.html' %}
+    <header>
+        <h1>Add New Post</h1>
+    </header>
+    <br>
+    <div class="container">
+        <form enctype="multipart/form-data" method="POST" class="form-group w-50 add-form">{% csrf_token %}
+            <input required class="form-control" placeholder="Title Name" type="text" name="title" id="title">
+            <br>
+            <textarea class="form-control" placeholder="Your Description" name="text" id="text"></textarea>
+            <br>
+            <input class="pull-left" type="file" accept="image/*" name="image" id="image">
+            <br>
+            <br>
+            <input class="btn btn-success form-control p-2" type="submit" value="Add">
+        </form>
+    </div>
+{% endblock %}

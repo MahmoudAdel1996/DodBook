@@ -1,0 +1,27 @@
+{% extends 'todolist/base.html' %}
+{% block content %}
+    <div class="page-center container bg-light">
+        <h2 class="p-2">Sign Up</h2>
+        <form method="post" class="form-group">{% csrf_token %}
+            {% if error == True %}
+                <div class="alert alert-danger alert-dismissible row" role="alert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    {{ form.errors }}.
+                </div>
+            {% endif %}
+                <label for="id_username" class="pull-left">Username</label>
+                <input id="id_username" required class="form-control" type="username" name="username"  placeholder="username">
+                <br>
+                <label for="id_password1" class="pull-left">Password</label>
+                <input id="id_password1" required class="form-control" type="password" name="password1"  placeholder="password">
+                <br>
+                <label for="id_password2" class="pull-left">Confirm Password</label>
+                <input id="id_password2" required class="form-control" type="password" name="password2"  placeholder="Confirm Password">
+                <br>
+            <input class="btn btn-success" type="submit" value="Sign Up">
+        </form>
+        <a href="{% url 'login' %}">You have an account LogIn</a>
+        <br>
+        <br>
+    </div>
+{% endblock %}

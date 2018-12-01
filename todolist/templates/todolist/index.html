@@ -1,0 +1,31 @@
+{% extends 'todolist/base.html' %}
+{% block content %}
+    {% include 'todolist/navbar.html' %}
+    <header>
+        <h1><span>D</span>od<span>B</span>ook</h1>
+        <a class="btn btn-success" href="add/"> Add Post </a>
+    </header>
+    <br>
+    <div class="container-fluid">
+    {% for foo in todolist %}
+        <div class="post p-1">
+            <h3 class="bg-success p-1">{{ foo.title }}</h3>
+            <p>{{ foo.text|slice:":10" }}...</p>
+            {% if foo.image %}
+                <img width="100%" src="{{ foo.image.url }}" alt="image not found">
+                <br><br>
+            {% endif %}
+            <a href="details/{{ foo.id }}" class="btn btn-dark">Details</a>
+            {% if foo.auth == request.user%}
+                <button data-id="{{ foo.id }}" class="btn btn-danger" >Delete</button>
+                <a href="{% url 'edit_todo' pk=foo.id %}" class="btn btn-primary" >Edit</a>
+            {% endif %}
+            <br>
+            <small style="color: #888;">Created at {{ foo.created_at|date:"D d/m/Y" }} {{ foo.created_at|time:"H:i A" }}</small>
+            <br>
+            <small style="color: #888;">by {{ foo.auth }}</small>
+        </div>
+    {% endfor %}
+    </div>
+{% endblock %}
+
